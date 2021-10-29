@@ -1,24 +1,32 @@
 import Login from './components/Login';
 import './App.css';
-
-import { initializeApp } from "firebase/app";
-
-const firebaseConfig = {
-    apiKey: "AIzaSyBtRIMLkSVfptH4ASinlEfnKhP-mBwUV24",
-    authDomain: "react-register-12564.firebaseapp.com",
-    projectId: "react-register-12564",
-    storageBucket: "react-register-12564.appspot.com",
-    messagingSenderId: "1074586181097",
-    appId: "1:1074586181097:web:76f6185600d69942fabf78",
-    measurementId: "G-TFLX02VGQ1"
-};
-initializeApp(firebaseConfig);
+import Home from './components/Home';
+import { app } from './firebase-config';
+import Create from './components/Create';
+import Update from './components/Update';
+import {
+  BrowserRouter as Router,
+  Route,
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <Login/>
-    </div>
+    <Router>
+      <div className="App">
+        <Route path="/" exact>
+          <Login />
+        </Route>
+        <Route path="/home" exact>
+          <Home />
+        </Route>
+        <Route path="/create" exact>
+          <Create />
+        </Route>
+        <Route path="/update" exact>
+          <Update />
+        </Route>
+      </div>
+    </Router>
   );
 }
 
